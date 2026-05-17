@@ -7,13 +7,13 @@
             <div class="my-1">
               <span class="inline-block w-[7.5rem]">Starting pot:</span>
               <input
-                v-model="config.startingPot"
+                v-model.number="config.startingPot"
                 type="number"
+                step="0.01"
                 :class="
                   'w-24 px-2 py-1 rounded-lg text-sm text-center ' +
                   (config.startingPot <= 0 ||
-                  config.startingPot > MAX_AMOUNT ||
-                  config.startingPot % 1 !== 0
+                  config.startingPot > MAX_AMOUNT
                     ? 'input-error'
                     : '')
                 "
@@ -814,9 +814,6 @@ export default defineComponent({
       }
       if (config.startingPot > MAX_AMOUNT) {
         errors.push(`Starting pot must not exceed ${MAX_AMOUNT}`);
-      }
-      if (config.startingPot % 1 !== 0) {
-        errors.push("Starting pot must be an integer");
       }
       if (config.effectiveStack <= 0) {
         errors.push("Effective stack must be positive");

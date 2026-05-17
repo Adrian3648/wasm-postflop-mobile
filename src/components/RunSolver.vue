@@ -293,9 +293,6 @@ const checkConfig = (
     return "Starting pot is too large";
   }
 
-  if (config.startingPot % 1 !== 0) {
-    return "Starting pot must be an integer";
-  }
 
   if (config.effectiveStack <= 0) {
     return "Effective stack must be positive";
