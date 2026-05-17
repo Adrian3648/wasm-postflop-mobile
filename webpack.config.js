@@ -36,6 +36,11 @@ module.exports = {
         test: /\.png$/,
         loader: "url-loader",
       },
+      // Allow non-fully-specified imports from wasm-bindgen output
+      {
+        test: /\.m?js$/,
+        resolve: { fullySpecified: false },
+      },
     ],
   },
   resolve: { extensions: [".js", ".ts", ".vue"] },

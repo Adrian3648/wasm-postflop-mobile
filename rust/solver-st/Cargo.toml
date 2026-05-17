@@ -11,11 +11,11 @@ path = "../solver-src/lib.rs"
 
 [dependencies]
 postflop-solver = { git = "https://github.com/b-inary/postflop-solver", features = ["custom-alloc"], default-features = false }
-wasm-bindgen = "0.2.95"
+wasm-bindgen = "=0.2.93"
 
 [profile.release]
 codegen-units = 1
 lto = true
 
 [package.metadata.wasm-pack.profile.release]
-wasm-opt = ["-O4"]
+wasm-opt = ["-O4", "--disable-reference-types", "--signext-lowering"]
